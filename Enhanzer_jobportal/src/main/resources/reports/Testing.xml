@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TestSuite" verbose="1">
+    <listeners>
+        <!-- Specify your listeners  -->
+        <listener class-name="assignment.Test_listners" />
+
+    </listeners>
+
+    <test name="TestCases">
+        <classes>
+            <!-- Specify your test classes  -->
+            <class name="assignment.Test_Form" />
+
+        </classes>
+    </test>
+</suite>
