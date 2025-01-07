@@ -428,6 +428,7 @@ public class Test_Form {
 
 
             }catch (AssertionError err){
+                capturetheScreenShot(driver);
                 System.out.println("Email is  not valid and not appear error messages: " + err.getMessage());
             } finally {
                 driver.quit();
@@ -439,6 +440,29 @@ public class Test_Form {
 
     }
 
+
+
+    @org.testng.annotations.Test(priority = 6)
+    public void capturetheScreenShot(WebDriver driver){
+
+        try {
+            // Take the screenshot
+            TakesScreenshot ts = (TakesScreenshot) driver;
+            File sourceFile = ts.getScreenshotAs(OutputType.FILE);
+
+            // Define the path where the screenshot will be saved
+            String filePath = "./screenshot.png"; // You can customize this path as needed
+
+            // Save the screenshot to the specified path
+            File destinationFile = new File(filePath);
+            FileHandler.copy(sourceFile, destinationFile);
+
+            System.out.println("Screenshot saved at: " + filePath);
+        } catch (IOException e) {
+            System.out.println("Failed to capture screenshot: " + e.getMessage());
+        }
+
+    }
 
 
 
